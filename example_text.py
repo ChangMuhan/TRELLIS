@@ -1,5 +1,5 @@
 import os
-# os.environ['ATTN_BACKEND'] = 'xformers'   # Can be 'flash-attn' or 'xformers', default is 'flash-attn'
+os.environ['ATTN_BACKEND'] = 'xformers'   # Can be 'flash-attn' or 'xformers', default is 'flash-attn'
 os.environ['SPCONV_ALGO'] = 'native'        # Can be 'native' or 'auto', default is 'auto'.
                                             # 'auto' is faster but will do benchmarking at the beginning.
                                             # Recommended to set to 'native' if run only once.
@@ -14,7 +14,9 @@ pipeline.cuda()
 
 # Run the pipeline
 outputs = pipeline.run(
-    "A chair looking like a avocado.",
+    # "A chair looking like a avocado.",
+    "Symmetrical ornate earrings with a circular stud featuring a floral cutout, linked to a crescent pendant that has a beaded ring, openwork disc with radial filigree, central five-petaled flower, and beaded fringe.", 
+    # "A house with windows, red bricks and yellow roof.", 
     seed=1,
     # Optional parameters
     # sparse_structure_sampler_params={

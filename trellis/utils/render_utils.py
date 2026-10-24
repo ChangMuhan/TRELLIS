@@ -93,7 +93,7 @@ def render_frames(sample, extrinsics, intrinsics, options={}, colors_overwrite=N
 
 def render_video(sample, resolution=512, bg_color=(0, 0, 0), num_frames=300, r=2, fov=40, **kwargs):
     yaws = torch.linspace(0, 2 * 3.1415, num_frames)
-    pitch = 0.25 + 0.5 * torch.sin(torch.linspace(0, 2 * 3.1415, num_frames))
+    pitch = torch.zeros(num_frames)
     yaws = yaws.tolist()
     pitch = pitch.tolist()
     extrinsics, intrinsics = yaw_pitch_r_fov_to_extrinsics_intrinsics(yaws, pitch, r, fov)

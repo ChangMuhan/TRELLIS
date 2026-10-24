@@ -167,9 +167,9 @@ def image_to_3d(
             },
             mode=multiimage_algo,
         )
-    video = render_utils.render_video(outputs['gaussian'][0], num_frames=120)['color']
+    # video = render_utils.render_video(outputs['gaussian'][0], num_frames=120)['color']
     video_geo = render_utils.render_video(outputs['mesh'][0], num_frames=120)['normal']
-    video = [np.concatenate([video[i], video_geo[i]], axis=1) for i in range(len(video))]
+    video = video_geo  # Skipped Gaussian concat
     video_path = os.path.join(user_dir, 'sample.mp4')
     imageio.mimsave(video_path, video, fps=15)
     state = pack_state(outputs['gaussian'][0], outputs['mesh'][0])
@@ -400,4 +400,4 @@ with gr.Blocks(delete_cache=(600, 600)) as demo:
 if __name__ == "__main__":
     pipeline = TrellisImageTo3DPipeline.from_pretrained("microsoft/TRELLIS-image-large")
     pipeline.cuda()
-    demo.launch()
+    demo.launch(share=True)

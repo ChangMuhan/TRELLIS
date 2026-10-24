@@ -438,7 +438,7 @@ def to_glb(
 
     # parametrize mesh
     vertices, faces, uvs = parametrize_mesh(vertices, faces)
-
+    print("before rendering")
     # bake texture
     observations, extrinsics, intrinsics = render_multiview(app_rep, resolution=1024, nviews=100)
     masks = [np.any(observation > 0, axis=-1) for observation in observations]
@@ -452,7 +452,7 @@ def to_glb(
         verbose=verbose
     )
     texture = Image.fromarray(texture)
-
+    print("after rendering")
     # rotate mesh (from z-up to y-up)
     vertices = vertices @ np.array([[1, 0, 0], [0, 0, -1], [0, 1, 0]])
     material = trimesh.visual.material.PBRMaterial(

@@ -136,6 +136,8 @@ class TrellisTextTo3DPipeline(Pipeline):
         
         # Decode occupancy latent
         decoder = self.models['sparse_structure_decoder']
+        # print(decoder.out_layer[2].weight)
+        # exit()
         coords = torch.argwhere(decoder(z_s)>0)[:, [0, 2, 3, 4]].int()
 
         return coords
@@ -155,6 +157,8 @@ class TrellisTextTo3DPipeline(Pipeline):
         Returns:
             dict: The decoded structured latent.
         """
+        # print(self.models['slat_decoder_gs'].out_layer.bias)
+        # exit()
         ret = {}
         if 'mesh' in formats:
             ret['mesh'] = self.models['slat_decoder_mesh'](slat)
