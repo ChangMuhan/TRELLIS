@@ -15,8 +15,8 @@ pipeline.cuda()
 # Run the pipeline
 outputs = pipeline.run(
     # "A chair looking like a avocado.",
-    "Symmetrical ornate earrings with a circular stud featuring a floral cutout, linked to a crescent pendant that has a beaded ring, openwork disc with radial filigree, central five-petaled flower, and beaded fringe.", 
-    # "A house with windows, red bricks and yellow roof.", 
+    # "Symmetrical ornate earrings with a circular stud featuring a floral cutout, linked to a crescent pendant that has a beaded ring, openwork disc with radial filigree, central five-petaled flower, and beaded fringe.",
+    "A black-and-white pelican wearing sunglasses is riding a brand-new, shiny bicycle.",
     seed=1,
     # Optional parameters
     # sparse_structure_sampler_params={

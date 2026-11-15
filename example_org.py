@@ -26,7 +26,7 @@ def _transform_fp16(img):
 pipeline.image_cond_model_transform = _transform_fp16
 
 # Load an image
-image = Image.open("/home/fun/3Dsystem/services/generation/TRELLIS/assets/example_image/T.png")
+image = Image.open("/home/fun/3Dsystem/services/generation/text2image-api/generated_b8acea3d08c8478884cf0a4e0d9cbc3f.jpg")
 
 # Run the pipeline
 outputs = pipeline.run(
